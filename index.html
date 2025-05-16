@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Para Ti mi pequeña sina💖</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .maquina-escribir {
+        font-family: monospace;
+        font-size: 1.2em;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid #e91e63;
+        width: 0;
+        transition: width 0.1s;
+        margin-bottom: 10px;
+      }
+      .boton-maquina {
+        cursor: pointer;
+        padding: 10px 15px;
+        background-color: #e91e63;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        margin-top: 10px;
+      }
+      .boton-maquina:disabled {
+        background-color: #c47081;
+        cursor: not-allowed;
+      }
+    </style>
+</head>
+<body>
+    <h1>Para la persona más especial del mundo 🌹</h1>
+    <div class="heart-bg"></div>
+
+    <p>
+        Cada momento contigo es único , Gracias por ser mi alegría y mi paz 🥰
+    </p>
+    <div class="mensaje">
+      <div id="mensajeMaquina" class="maquina-escribir"></div>
+    </div>
+
+    <button id="btnEscribir" class="boton-maquina">
+      💌 Mostrar mensaje especial
+    </button>
+
+    <div class="heart"></div>
+
+<script>
+    const heartBg = document.querySelector('.heart-bg');
+    const colors = ['#e91e63', '#ff4081', '#f48fb1', '#f06292'];
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw'; // posición horizontal aleatoria
+        heart.style.animationDuration = (5 + Math.random() * 5) + 's'; // duración animación aleatoria
+        heart.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.setProperty('--color', heart.style.backgroundColor);
+
+        heartBg.appendChild(heart);
+
+        // Elimina el corazón después de que termine la animación
+        setTimeout(() => {
+            heart.remove();
+        }, 10000);
+    }
+
+    // Crear corazones cada 300 ms aprox.
+    setInterval(createHeart, 300);
+</script>
+
+<div class="galeria">
+    <img src="img/nosotros.jpg" alt="Nosotros" />
+    <img src="img/NOSOTROS2.jpg" alt="Juntos siempre" />
+</div>
+<div class="carta-container">
+  <div class="carta" id="carta">
+    <div class="cara frente">
+      <p>Toca para abrir 💌</p>
+    </div>
+    <div class="cara reverso">
+      <p class="texto-carta">
+        Mi amor...<br />
+        Esta es una carta escrita con el corazón 💖.<br />
+        Dentro de ti encontré todo lo que soñé 🥺.<br />
+        Te amo más de lo que las palabras pueden explicar 😘.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="mensaje">
+    <p>Mi niña adorada 🥰,</p>
+    <p>Las palabras se quedan cortas para expresar lo profundo de mi aprecio por ti 💖. Cada día me asombras con tu valentía 💪, esa fuerza interior que te impulsa a enfrentar cada desafío con una determinación admirable ✨. Ver cómo te levantas ante las dificultades me llena de un orgullo inmenso 🤩, un sentimiento que crece con cada paso que das 👣.</p>
+    <p>Eres una guerrera 🛡️, mi pequeña, y tu espíritu indomable ilumina mi mundo 🌟. Pero más allá de tu coraje, está ese corazón tan puro ❤️ y esa alma tan noble que hacen que te ame más de lo que las palabras jamás podrán decir 💬.</p>
+    <p>Quiero que sepas, hoy y siempre 🙏, que no estás sola 🤗. Estaré a tu lado en cada aventura 🚀, en cada tropiezo 🫂, celebrando tus triunfos 🎉 y ofreciéndote mi hombro cuando necesites apoyo 🤗. Mi amor por ti es incondicional e infinito ∞, un faro que guiará siempre tu camino 🧭.</p>
+    <p>Te amo con todo mi ser 💘, mi niña valiente 🌟. Siempre estaré contigo 🥰.</p>
+</div>
+
+<button id="sorpresaBtn">🎁 Descubre una sorpresa</button>
+
+<div id="modalSorpresa" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar">&times;</span>
+    <p>Hola mi amor 💖<br /> 
+    Esta es solo una pequeña muestra de todo lo que significas para mí 🥰.<br /> 
+    Gracias por existir y por llenar mi vida de luz ✨. <br />
+    Eres mi regalo más bonito. 🎁💘</p>
+  </div>
+</div>
+<div class="galeria-carrusel">
+  <img src="img/nosotros.jpg" alt="Nosotros">
+  <img src="img/gan3.jpg" alt="Juntos siempre">
+  <img src="img/gan.jpg" alt="Foto especial">
+  <img src="img/gan2.jpg" alt="Momentos felices">
+  <!-- Agrega más imágenes si quieres -->
+</div>
+<div class="mensaje">
+  <p>Mi amor, cada latido de mi corazón lleva tu nombre ❤️.</p>
+  <p>Contigo aprendí que el amor verdadero no se encuentra, se construye día a día con paciencia, ternura y lealtad 🫂.</p>
+  <p>No necesito promesas eternas, solo tu mano cada día, en cada paso, en cada lucha 🥹.</p>
+  <p>En este mundo lleno de ruido, tú eres mi calma... mi lugar seguro 🌍💖.</p>
+  <p>Si alguna vez dudas, recuerda esto: fuiste, eres y siempre serás mi decisión favorita 💘.</p>
+  <p>A veces no digo mucho, pero cada gesto, cada detalle, cada mirada mía... grita cuánto te amo 🌹.</p>
+  <p>Prometo amarte incluso en los silencios, en los días difíciles, y en los más simples también 🕊️.</p>
+</div>
+<div class="peluche-container">
+  <img src="img/osito2.png" alt="Peluche tierno" id="peluche" />
+  <div id="frasePeluche" class="burbuja-frase"></div>
+</div>
+
+
+<audio id="musica" loop>
+  <source src="musica/MUSICA.mp3" type="audio/mpeg" />
+  Tu navegador no soporta música de fondo.
+</audio>
+
+<button id="playMusicBtn">🎵 Activar música</button>
+
+<script>
+    const botonMusica = document.getElementById('playMusicBtn');
+    const audio = document.getElementById('musica');
+
+    botonMusica.addEventListener('click', () => {
+        audio.play();
+        botonMusica.style.display = 'none'; // Ocultar el botón después de iniciar la música
+    });
+</script>
+
+<script>
+    const btn = document.getElementById("sorpresaBtn");
+    const modal = document.getElementById("modalSorpresa");
+    const cerrar = document.querySelector(".cerrar");
+
+    btn.addEventListener("click", () => {
+        modal.style.display = "flex";
+    });
+
+    cerrar.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Cerrar al tocar fuera del modal
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+</script>
+
+<script>
+    const carta = document.getElementById("carta");
+
+    carta.addEventListener("click", () => {
+        carta.classList.toggle("abierta");
+    });
+</script>
+
+<script>
+  const mensaje = "Hola mi amor, cada día que pasa te amo más... 💖";
+  const contenedor = document.getElementById("mensajeMaquina");
+  const boton = document.getElementById("btnEscribir");
+  let index = 0;
+  let escribiendo = false;
+
+  function escribirMaquina() {
+    if (index < mensaje.length) {
+      contenedor.textContent += mensaje.charAt(index);
+      index++;
+      contenedor.style.width = contenedor.textContent.length + "ch";
+      setTimeout(escribirMaquina, 100);
+    } else {
+      contenedor.style.borderRight = "none";
+      escribiendo = false;
+      boton.disabled = false;
+    }
+  }
+
+  boton.addEventListener("click", () => {
+    if (escribiendo) return; // evita doble click
+    contenedor.textContent = "";
+    contenedor.style.width = "0";
+    contenedor.style.borderRight = "2px solid #e91e63";
+    index = 0;
+    escribiendo = true;
+    boton.disabled = true;
+    escribirMaquina();
+  });
+</script>
+<script>
+  const frases = [
+    "Eres la personita más linda del universo 💗",
+    "¡Te quiero con todo mi peluche corazón! 🧸💕",
+    "Gracias por existir, mi niña hermosa ✨",
+    "Abrazarte sería mi superpoder favorito 🤗",
+    "¡Eres un regalo para el mundo! 🎁💖"
+  ];
+
+  const peluche = document.getElementById("peluche");
+  const frase = document.getElementById("frasePeluche");
+
+  peluche.addEventListener("click", () => {
+    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+    frase.textContent = fraseAleatoria;
+    frase.style.opacity = 1;
+
+    // Ocultar la frase después de 4 segundos
+    setTimeout(() => {
+      frase.style.opacity = 0;
+    }, 4000);
+  });
+</script>
+
+</body>
+</html>

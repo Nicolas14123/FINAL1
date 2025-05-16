@@ -1,0 +1,466 @@
+body {
+    position: relative;
+    overflow-x: hidden;
+    background-color: hsl(340, 100%, 97%);
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;  /* más grande para PC */
+    color: #e91e63;
+    text-align: center;
+    margin: 30px auto 60px auto; /* margen inferior aumentado para separar del texto */
+    padding: 20px 40px;
+    max-width: 600px;
+    border: 4px solid #ff7997;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #ff7997aa;
+    background: linear-gradient(135deg, #ffe6f0, #fff0f6);
+    position: relative;
+    word-break: break-word;
+}
+
+/* Corazones decorativos */
+h1::before,
+h1::after {
+    content: "💖";
+    font-size: 1.8rem; /* más grande en PC */
+    position: absolute;
+    color: #e91e63;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+h1::before {
+    left: -35px;
+}
+
+h1::after {
+    right: -35px;
+}
+
+.galeria img {
+    max-width: 250px; /* más grande en PC */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    margin: 10px;
+}
+
+.galeria img:hover {
+    transform: scale(1.1);
+}
+
+.carta-container {
+    perspective: 1000px;
+    margin: 20px auto 40px auto; /* margen inferior aumentado para separar bien del texto */
+    width: 200px;
+    height: 130px;
+}
+
+.carta {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    cursor: pointer;
+}
+
+.cara {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    border: 2px dashed #ff69b4;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.frente {
+    background-color: #ffeef5;
+    color: #e91e63;
+    font-weight: bold;
+    background-image: linear-gradient(135deg, #ffe6f0, #fff0f6); /* bonito fondo rosado */
+}
+
+.reverso {
+    background-color: #fff0f6;
+    transform: rotateY(180deg);
+    color: #444;
+    line-height: 1.3;
+    font-size: 0.8rem;
+    background-image: url('https://www.transparenttextures.com/patterns/white-diamond.png');
+    background-color: #ffe6f0;
+}
+
+.carta.abierta {
+    transform: rotateY(180deg);
+}
+
+.mensaje {
+    max-width: 800px;
+    margin: 40px auto 30px auto; /* margen superior aumentado para separar de la carta */
+    text-align: left;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: #444;
+    padding: 20px 30px;
+    background-color: #fff0f6;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 121, 151, 0.3);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Ajuste para pantallas pequeñas (celulares) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+        max-width: 280px;
+        padding: 10px 20px;
+        border-width: 3px;
+        box-shadow: 0 0 10px #ff7997aa;
+        margin-bottom: 40px; /* mantiene separación */
+        word-break: break-word;
+    }
+    h1::before,
+    h1::after {
+        font-size: 1.2rem;
+        left: -25px;
+        right: -25px;
+    }
+    .galeria img {
+        max-width: 100px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        margin: 5px;
+    }
+    .mensaje {
+        font-size: 0.85rem;
+        padding: 15px 10px;
+        text-align: center;
+        max-width: 100%;
+        margin: 40px auto 30px auto; /* margen superior también para celular */
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+}
+
+#playMusicBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 999;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#playMusicBtn:hover {
+    background-color: #ff85c1;
+}
+
+p {
+    margin-top: 0.1rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.heart {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: #e91e63;
+    transform: rotate(-45deg);
+    margin: 20px auto;
+    animation: beat 1s infinite;
+    cursor: pointer;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #e91e63;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -20px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    right: -20px;
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: rotate(-45deg) scale(1);
+    }
+    50% {
+        transform: rotate(-45deg) scale(1.2);
+    }
+}
+
+/* Fondo con corazones animados */
+.heart-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0; /* Menor que .galeria */
+}
+
+.heart-bg .heart {
+    position: absolute;
+    width: 20px;
+    height: 18px;
+    background-color: #e91e63;
+    transform: rotate(-45deg);
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+}
+
+.heart-bg .heart::before,
+.heart-bg .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 18px;
+    background-color: #e91e63;
+    border-radius: 50%;
+}
+
+.heart-bg .heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart-bg .heart::after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(-45deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-20vh) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+#sorpresaBtn {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+#sorpresaBtn:hover {
+    background-color: #ff85c1;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: #fff0f6;
+    padding: 20px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 320px;
+    box-shadow: 0 0 15px rgba(255,121,151,0.4);
+    text-align: center;
+    animation: aparecer 0.3s ease;
+    position: relative;
+}
+
+.modal .cerrar {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #e91e63;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.texto-carta {
+    max-width: 280px;
+    margin: 10px auto 0 auto;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    color: #444;
+    background-color: #fff0f6;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(255, 121, 151, 0.4);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    text-align: center;
+}
+.maquina-escribir {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.3rem;
+  color: #e91e63;
+  border-right: 2px solid #e91e63;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: caret 1s steps(1) infinite;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  transition: width 0.3s ease;
+}
+
+@keyframes caret {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #e91e63;
+  }
+}
+
+.boton-maquina {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: #ff69b4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.boton-maquina:hover {
+  background-color: #ff85c1;
+}
+
+@media (max-width: 480px) {
+  .maquina-escribir {
+    font-size: 1.1rem;
+  }
+}
+/* Estilos para galería carrusel */
+.galeria-carrusel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* Ajuste automático al deslizar */
+  -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+  gap: 10px;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.galeria-carrusel img {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.galeria-carrusel img:hover {
+  transform: scale(1.05);
+}
+.peluche-container {
+  text-align: center;
+  margin-top: 40px;
+  position: relative;
+}
+
+.peluche-container img {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 5px solid #ff69b4; /* marco rosa fuerte */
+  border-radius: 20px;       /* bordes redondeados */
+  box-shadow: 0 0 15px 3px rgba(255, 105, 180, 0.5); /* sombra rosada suave */
+  padding: 8px;              /* espacio entre borde y la imagen */
+  background: #fff0f6;       /* fondo muy suave rosado */
+}
+
+
+.peluche-container img:hover {
+  transform: scale(1.1);
+}
+
+.burbuja-frase {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff0f6;
+  color: #c2185b;
+  border: 2px solid #f8bbd0;
+  border-radius: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-style: italic;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  transition: opacity 0.3s;
+  max-width: 300px;
+  z-index: 10;
+}
